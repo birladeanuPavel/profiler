@@ -1,0 +1,31 @@
+body { 
+    padding-top: 70px; 
+}
+
+/*.has-success {
+  @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
+}
+.has-warning {
+  @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
+}
+.has-error {
+  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+}*/
+
+/*.submit-form {
+    input{
+        &.ng-invalid.ng-touched {
+            @extend .has-error;
+            background-color: #FA787E;
+        }  
+        &.ng-valid.ng-touched {
+             @extend .has-error;
+            background-color: #78FA89;
+        }
+    }
+}*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+

@@ -81,7 +81,7 @@ function fileUploader($scope, FileUploader) {
 
 profilerControllers.controller('UserController', ['$scope', 'FileUploader',
     function ($scope, FileUploader) {
-        $scope.user = {gender: 'MALE', avatar: ''};
+        $scope.user = {gender: 'MALE'};
 //        $scope.files = [];
         $scope.FormElement = {
             FIRST_NAME: {
@@ -134,18 +134,25 @@ profilerControllers.controller('UserController', ['$scope', 'FileUploader',
 
         $scope.save = function (form, user) {
             if (form.$invalid) {
-//            form.$setPristine();
-//            form.$setUntouched();
                 console.log(user);
             } else {
                 function onLoadFile(event) {
-                    $scope.user.avatar = event.target.result;
-                }
-
+                     $scope.$apply(function() {
+                        $scope.user.avatar = reader.result;
+                    });
+                };
                 var reader = new FileReader();
                 reader.onload = onLoadFile;
-                reader.readAsDataURL($scope.files[0]);
-                console.log('success');
+                reader.readAsText($scope.avatar[0]);
+                
+//                function onLoadFile(event) {
+//                     $scope.$apply(function() {
+//                        $scope.user.avatar = event.target.result;
+//                    });
+//                };
+//                var reader = new FileReader();
+//                reader.onload = onLoadFile;
+//                reader.readAsDataURL($scope.avatar[0]);
             }
         };
     }]);

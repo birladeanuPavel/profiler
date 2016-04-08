@@ -2,13 +2,6 @@
 
 var profilerDirectives = angular.module("profilerDirectives", []);
 
-profilerDirectives.directive('test', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'resources/templates/test.jspf'
-    };
-});
-
 profilerDirectives.directive('formInputGroup', function () {
     return {
         restrict: 'E',
@@ -70,20 +63,20 @@ profilerDirectives.directive('ngThumb', ['$window', function ($window) {
         };
     }]);
 
-profilerDirectives.directive('validFile', function () {
+profilerDirectives.directive('fileModel', function () {
     return {
         require: 'ngModel',
         link: function (scope, el, attrs, ngModel) {
             el.bind('change', function () {
                 scope.$apply(function () {
-
-//                    function onLoadFile(event) {
-//                        scope.user.avatar = event.target.result;
-//                    }
-//
-//                    var reader = new FileReader();
-//                    reader.onload = onLoadFile;
-//                    reader.readAsDataURL(el[0].files[0]);
+                    function onLoadFile(event) {
+                        scope.$apply(function () {
+                            scope.resource = event.target.result;
+                        });
+                    };
+                    var reader = new FileReader();
+                    reader.onload = onLoadFile;
+                    reader.readAsDataURL(el[0].files[0]);
 
                     ngModel.$setViewValue(el[0].files);
                     ngModel.$render();
@@ -92,20 +85,3 @@ profilerDirectives.directive('validFile', function () {
         }
     };
 });
-
-
-profilerDirectives.directive('fileModel', ['$parse', function ($parse) {
-        return {
-            restrict: 'A',
-            link: function (scope, element, attrs) {
-                var model = $parse(attrs.fileModel);
-                var modelSetter = model.assign;
-
-                element.bind('change', function () {
-                    scope.$apply(function () {
-                        modelSetter(scope, element[0].files[0]);
-                    });
-                });
-            }
-        };
-    }]);

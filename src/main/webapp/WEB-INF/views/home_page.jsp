@@ -77,8 +77,6 @@
         <!--angular ui-->
         <script src="<c:url value="/resources/plugins/angular-ui-bootstrap/ui-bootstrap.js" />"></script>
         <script src="<c:url value="/resources/plugins/angular-ui-bootstrap/ui-bootstrap-tpls.js" />"></script>
-        <!--angular file upload-->
-        <script src="<c:url value="/resources/plugins/angular-file-upload/angular-file-upload.js" />"></script>
         <!--mine-->
         <script src="<c:url value="/resources/js/controller.js" />"></script>
         <script src="<c:url value="/resources/js/directives.js" />"></script>

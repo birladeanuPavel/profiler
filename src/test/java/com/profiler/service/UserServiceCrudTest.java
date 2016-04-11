@@ -1,6 +1,7 @@
 package com.profiler.service;
 
 import com.profiler.GenericTest;
+import com.profiler.dal.Gender;
 import com.profiler.dal.entity.Profile;
 import com.profiler.dal.entity.Role;
 import com.profiler.dal.entity.User;
@@ -56,6 +57,7 @@ public class UserServiceCrudTest extends GenericTest{
         user.setEmail("admin@emai.ro");
         user.setPassword("123456");
         user.setProfile(profile);
+        user.setGender(Gender.MALE);
         user = userService.save(user);
     }
  

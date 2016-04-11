@@ -1,6 +1,6 @@
 'user strict';
 
-var profilerControllers = angular.module("profilerControllers", ['angularFileUpload']);
+var profilerControllers = angular.module("profilerControllers", []);
 
 profilerControllers.controller('UserController', ['$scope',
     function ($scope) {

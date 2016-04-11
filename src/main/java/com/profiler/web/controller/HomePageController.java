@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author pavel
  */
 @Controller
-//@RequestMapping("/")
 public class HomePageController extends MainController{
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)

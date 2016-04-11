@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="profiler:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="profiler.war">
-      <element id="artifact" artifact-name="profiler:war exploded" />
-    </root>
-  </artifact>
-</component>

@@ -85,3 +85,15 @@ profilerDirectives.directive('fileModel', function () {
         }
     };
 });
+
+profilerDirectives.directive('validPassword', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue, $scope) {
+                var noMatch = viewValue != scope.user.password;
+                ctrl.$setValidity('noMatch', !noMatch);
+            })
+        }
+    }
+});

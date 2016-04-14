@@ -4,4 +4,10 @@ body {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
+.top15 {
+  margin-top: 15px; }
+
+.bottom15 {
+  margin-bottom: 15px; }
+
 /*# sourceMappingURL=home_page.css.map */

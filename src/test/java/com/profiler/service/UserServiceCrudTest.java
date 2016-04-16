@@ -5,12 +5,14 @@ import com.profiler.dal.Gender;
 import com.profiler.dal.entity.Profile;
 import com.profiler.dal.entity.Role;
 import com.profiler.dal.entity.User;
-import com.profiler.service.bean.ProfileService;
-import com.profiler.service.bean.RoleService;
-import com.profiler.service.bean.UserService;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.profiler.service.bean.ProfileService;
+import com.profiler.service.bean.RoleService;
+import com.profiler.service.bean.UserService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

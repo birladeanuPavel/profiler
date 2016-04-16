@@ -3,6 +3,7 @@ package com.profiler.service.bean.impl;
 import com.profiler.dal.dao.RoleDao;
 import com.profiler.dal.entity.Role;
 import com.profiler.service.bean.RoleService;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("roleService")
 @Transactional(readOnly = true)
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private RoleDao roleDao;

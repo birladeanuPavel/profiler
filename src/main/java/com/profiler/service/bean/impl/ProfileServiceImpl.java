@@ -3,6 +3,7 @@ package com.profiler.service.bean.impl;
 import com.profiler.dal.dao.ProfileDao;
 import com.profiler.dal.entity.Profile;
 import com.profiler.service.bean.ProfileService;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("profileService")
 @Transactional(readOnly = true)
-public class ProfileServiceImpl implements ProfileService{
+public class ProfileServiceImpl implements ProfileService {
 
     @Autowired
     private ProfileDao profileDao;

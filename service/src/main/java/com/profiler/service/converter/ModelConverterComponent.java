@@ -5,10 +5,8 @@ package com.profiler.service.converter;
  */
 public interface ModelConverterComponent {
 
-    <T> T convertToDto(Object dtoObject, Class<T> modelClass)
-            throws ReflectiveOperationException;
+    <T> T convertToDto(Object modelClass, Class<T> dtoClass);
 
-    <T> T convertToModel(Object modelObject, Class<T> dtoClass)
-            throws ReflectiveOperationException;
+    <T> T convertToModel(Object dtoObject, Class<T> modelClass);
 
 }

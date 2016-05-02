@@ -8,7 +8,19 @@ import com.profiler.service.converter.contract.ConvertType;
  */
 public class RoleDto {
 
+    private Long id;
+
     private String name;
+
+    @Convert(name = "setId", type = Long.class)
+    public Long getId() {
+        return id;
+    }
+
+    @Convert(name = "getId", convertType = ConvertType.TO_DTO)
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Convert(name = "setName", type = String.class)
     public String getName() {

@@ -2,6 +2,7 @@ package com.profiler.service.bean;
 
 
 import com.profiler.dal.entity.Role;
+import com.profiler.service.dto.RoleDto;
 
 import java.util.List;
 
@@ -11,13 +12,13 @@ import java.util.List;
  */
 public interface RoleService {
     
-    Role getById(Long id);
-    
-    Role save(Role role);
-    
-    Role update(Role role);
+    RoleDto getById(Long id);
 
-    void delete(Role role);
+    Long save(RoleDto role);
 
-    List<Role> getAll();
+    RoleDto update(RoleDto role);
+
+    void delete(RoleDto role);
+
+    List<RoleDto> getAll();
 }

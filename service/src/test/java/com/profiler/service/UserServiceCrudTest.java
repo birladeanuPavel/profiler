@@ -38,27 +38,27 @@ public class UserServiceCrudTest extends GenericTest{
     
     @Before
     public void init() {
-        Role role = new Role();
-        role.setName(ROLE_NAME);
-        role = roleService.save(role);
-        
-        Profile profile = new Profile();
-        profile.setName("adminProfile");
-        Set<Role> roles = new HashSet<>();
-        roles.add(role);
-        profile.setRoles(roles);
-        profile = profileService.save(profile);
-        
-        user = new User();
-        user.setAvatar(new byte[2]);
-        user.setFirstName(USER_FIRST_NAME);
-        user.setLastName("admin");
-        user.setBirthDate(new Date());
-        user.setEmail("admin@emai.ro");
-        user.setPassword("123456");
-        user.setProfile(profile);
-        user.setGender(Gender.MALE);
-        user = userService.save(user);
+//        Role role = new Role();
+//        role.setName(ROLE_NAME);
+//        role = roleService.save(role);
+//
+//        Profile profile = new Profile();
+//        profile.setName("adminProfile");
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(role);
+//        profile.setRoles(roles);
+//        profile = profileService.save(profile);
+//
+//        user = new User();
+//        user.setAvatar(new byte[2]);
+//        user.setFirstName(USER_FIRST_NAME);
+//        user.setLastName("admin");
+//        user.setBirthDate(new Date());
+//        user.setEmail("admin@emai.ro");
+//        user.setPassword("123456");
+//        user.setProfile(profile);
+//        user.setGender(Gender.MALE);
+//        user = userService.save(user);
     }
  
     @Test

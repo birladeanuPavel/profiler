@@ -2,6 +2,7 @@ package com.profiler.service.bean;
 
 
 import com.profiler.dal.entity.Profile;
+import com.profiler.service.dto.ProfileDto;
 
 import java.util.List;
 
@@ -11,13 +12,13 @@ import java.util.List;
  */
 public interface ProfileService {
 
-    Profile getById(Long id);
+    ProfileDto getById(Long id);
 
-    Profile save(Profile profile);
+    Long save(ProfileDto profile);
 
-    Profile update(Profile profile);
+    ProfileDto update(ProfileDto profile);
 
-    void delete(Profile profile);
+    void delete(ProfileDto profile);
 
-    List<Profile> getAll();
+    List<ProfileDto> getAll();
 }

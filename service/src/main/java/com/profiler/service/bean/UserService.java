@@ -1,7 +1,7 @@
 package com.profiler.service.bean;
 
 
-import com.profiler.dal.entity.User;
+import com.profiler.service.dto.UserDto;
 
 import java.util.List;
 
@@ -11,13 +11,13 @@ import java.util.List;
  */
 public interface UserService {
     
-    User getById(Long id);
+    UserDto getById(Long id);
     
-    User save(User user);
+    Long save(UserDto user);
     
-    User update(User user);
+    UserDto update(UserDto user);
 
-    void delete(User user);
+    void delete(UserDto user);
 
-    List<User> getAll();
+    List<UserDto> getAll();
 }

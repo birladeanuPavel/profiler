@@ -11,9 +11,21 @@ import java.util.Set;
  */
 public class ProfileDto {
 
+    private Long id;
+
     private String name;
 
     private Set<RoleDto> roles;
+
+    @Convert(name = "setId", type = Long.class)
+    public Long getId() {
+        return id;
+    }
+
+    @Convert(name = "getId", convertType = ConvertType.TO_DTO)
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Convert(name = "setName", type = String.class)
     public String getName() {

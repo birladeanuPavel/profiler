@@ -4,7 +4,6 @@ import com.profiler.service.bean.ProfileService;
 import com.profiler.service.bean.RoleService;
 import com.profiler.service.dto.ProfileDto;
 import com.profiler.service.dto.RoleDto;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by pavel on 4/28/16.

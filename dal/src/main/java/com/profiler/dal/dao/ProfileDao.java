@@ -7,5 +7,7 @@ import com.profiler.dal.entity.Profile;
  * @author pavel
  */
 public interface ProfileDao extends GenericDao<Long, Profile>{
-    
+
+    Profile getByName(String name);
+
 }

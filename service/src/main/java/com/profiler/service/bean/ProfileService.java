@@ -3,6 +3,7 @@ package com.profiler.service.bean;
 
 import com.profiler.dal.entity.Profile;
 import com.profiler.service.dto.ProfileDto;
+import com.profiler.service.enums.ProfileEnum;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface ProfileService {
     void delete(ProfileDto profile);
 
     List<ProfileDto> getAll();
+
+    ProfileDto geByName(ProfileEnum profileType);
 }

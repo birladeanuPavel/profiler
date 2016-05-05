@@ -7,6 +7,7 @@ import com.profiler.service.bean.UserService;
 import com.profiler.service.dto.ProfileDto;
 import com.profiler.service.dto.RoleDto;
 import com.profiler.service.dto.UserDto;
+import com.profiler.service.enums.ProfileEnum;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import static org.junit.Assert.assertNotNull;
 public class UserServiceCrudTest extends GenericTest{
 
     private static final String USER_FIRST_NAME = "admin";
-    private static final String ADMIN_PROFILE = "Admin_Profile";
+    private static final String ADMIN_PROFILE = "ADMIN";
     private static final String ADMIN_ROLE = "Admin_Role";
     
     @Autowired
@@ -44,11 +45,6 @@ public class UserServiceCrudTest extends GenericTest{
         RoleDto roleDto = new RoleDto();
         roleDto.setName(ADMIN_ROLE);
 
-        ProfileDto profileDto = new ProfileDto();
-        profileDto.setName(ADMIN_PROFILE);
-        profileDto.setRoles(new HashSet<>(Arrays.asList(roleDto)));
-        profileDto.setId(profileService.save(profileDto));
-
         UserDto user = new UserDto();
         user.setAvatar(new byte[2]);
         user.setFirstName(USER_FIRST_NAME);
@@ -56,8 +52,8 @@ public class UserServiceCrudTest extends GenericTest{
         user.setBirthDate(new Date());
         user.setEmail("admin@emai.ro");
         user.setPassword("123456");
-        user.setProfile(profileDto);
         user.setGender(Gender.MALE);
+        user.setProfileType(ProfileEnum.ADMIN);
         id = userService.save(user);
     }
  
@@ -69,7 +65,6 @@ public class UserServiceCrudTest extends GenericTest{
         assertEquals(Gender.MALE, user.getGender());
         assertEquals(1, user.getProfile().getRoles().size());
         assertEquals(ADMIN_PROFILE, user.getProfile().getName());
-        assertEquals(ADMIN_ROLE, user.getProfile().getRoles().iterator().next().getName());
     }
     
 }

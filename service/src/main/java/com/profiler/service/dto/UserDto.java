@@ -4,6 +4,7 @@ import com.profiler.dal.entity.Profile;
 import com.profiler.dal.enums.Gender;
 import com.profiler.service.converter.contract.Convert;
 import com.profiler.service.converter.contract.ConvertType;
+import com.profiler.service.enums.ProfileEnum;
 
 import java.util.Date;
 
@@ -11,6 +12,8 @@ import java.util.Date;
  * Created by pavel on 4/25/16.
  */
 public class UserDto {
+
+    private Long id;
 
     private String email;
 
@@ -26,7 +29,20 @@ public class UserDto {
 
     private Gender gender;
 
-    private ProfileDto profileDto;
+    private ProfileDto profile;
+
+    private ProfileEnum profileType;
+
+    @Convert(name = "setId", type = Long.class)
+    public Long getId() {
+        return id;
+    }
+
+    @Convert(name = "getId", convertType = ConvertType.TO_DTO)
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     @Convert(name = "setEmail", type = String.class)
     public String getEmail() {
@@ -100,11 +116,19 @@ public class UserDto {
 
     @Convert(name = "setProfile", type = Profile.class, doNeedConversion = true)
     public ProfileDto getProfile() {
-        return profileDto;
+        return profile;
     }
 
     @Convert(name = "getProfile", type = ProfileDto.class, convertType = ConvertType.TO_DTO, doNeedConversion = true)
     public void setProfile(ProfileDto profileDto) {
-        this.profileDto = profileDto;
+        this.profile = profileDto;
+    }
+
+    public ProfileEnum getProfileType() {
+        return profileType;
+    }
+
+    public void setProfileType(ProfileEnum profileType) {
+        this.profileType = profileType;
     }
 }

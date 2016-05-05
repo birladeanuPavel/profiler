@@ -5,6 +5,7 @@ import com.profiler.dal.entity.Profile;
 import com.profiler.service.bean.ProfileService;
 import com.profiler.service.converter.ModelConverterComponent;
 import com.profiler.service.dto.ProfileDto;
+import com.profiler.service.enums.ProfileEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +53,12 @@ public class ProfileServiceImpl implements ProfileService {
         return profileDao.getAll()
                 .stream().map(p -> modelConverterComponent.convertToDto(p, ProfileDto.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public ProfileDto geByName(ProfileEnum profileType) {
+        return modelConverterComponent.convertToDto(
+                profileDao.getByName(profileType.name()), ProfileDto.class);
     }
 
 }

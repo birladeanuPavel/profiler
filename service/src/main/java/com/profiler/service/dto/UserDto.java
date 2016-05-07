@@ -5,7 +5,13 @@ import com.profiler.dal.enums.Gender;
 import com.profiler.service.converter.contract.Convert;
 import com.profiler.service.converter.contract.ConvertType;
 import com.profiler.service.enums.ProfileEnum;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -15,22 +21,40 @@ public class UserDto {
 
     private Long id;
 
+    @NotNull
+    @NotEmpty
+    @Email
     private String email;
 
+    @NotNull
+    @Size(min=1, max = 20)
     private String password;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=1, max = 20)
     private String firstName;
 
+    @NotNull
+    @NotEmpty
+    @Size(min=1, max = 20)
     private String lastName;
 
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-dd-mm")
+    @Past
     private Date birthDate;
 
+    @NotNull
+    @NotEmpty
     private byte[] avatar;
 
+    @NotNull
     private Gender gender;
 
     private ProfileDto profile;
 
+    @NotNull
     private ProfileEnum profileType;
 
     @Convert(name = "setId", type = Long.class)

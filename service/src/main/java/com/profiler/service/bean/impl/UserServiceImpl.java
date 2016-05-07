@@ -58,8 +58,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void delete(UserDto user) {
-        userDao.delete(modelConverterComponent.convertToModel(user, User.class));
+    public void delete(Long id) {
+        userDao.delete(userDao.getById(id));
     }
 
     @Override

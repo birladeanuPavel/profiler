@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -31,15 +32,21 @@ public class UserRestController extends MainRestController{
     }
 
     @RequestMapping(value = "saveUser", method = RequestMethod.POST)
-    public ResponseEntity<Void> saveUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<Void> saveUser(@Valid @RequestBody UserDto userDto) {
         userService.save(userDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "updateUser", method = RequestMethod.PUT)
-    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto) {
         userDto = userService.update(userDto);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "deleteUser/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        userService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

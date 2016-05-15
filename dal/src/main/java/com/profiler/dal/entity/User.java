@@ -34,7 +34,7 @@ public class User extends MainEntity implements Serializable{
     
     @Column(name = "avatar")
     @Lob
-    private byte[] avatar;
+    private String avatar;
     
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)
@@ -84,11 +84,11 @@ public class User extends MainEntity implements Serializable{
         this.birthDate = birthDate;
     }
 
-    public byte[] getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(byte[] avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
@@ -116,7 +116,7 @@ public class User extends MainEntity implements Serializable{
         hash = 43 * hash + Objects.hashCode(this.firstName);
         hash = 43 * hash + Objects.hashCode(this.lastName);
         hash = 43 * hash + Objects.hashCode(this.birthDate);
-        hash = 43 * hash + Arrays.hashCode(this.avatar);
+        hash = 43 * hash + Objects.hashCode(this.avatar);
         hash = 43 * hash + Objects.hashCode(this.gender);
         hash = 43 * hash + Objects.hashCode(this.profile);
         return hash;
@@ -149,7 +149,7 @@ public class User extends MainEntity implements Serializable{
         if (!Objects.equals(this.birthDate, other.birthDate)) {
             return false;
         }
-        if (!Arrays.equals(this.avatar, other.avatar)) {
+        if (!Objects.equals(this.avatar, other.avatar)) {
             return false;
         }
         if (this.gender != other.gender) {

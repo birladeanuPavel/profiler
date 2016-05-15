@@ -33,7 +33,7 @@ public class UserDaoTest extends GenericTest{
         profile.setId(id);
         
         User user = new User();
-        user.setAvatar(new byte[2]);
+        user.setAvatar("img");
         user.setFirstName("admin");
         user.setLastName("admin");
         user.setBirthDate(new Date());

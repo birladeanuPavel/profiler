@@ -1,7 +1,6 @@
 package com.profiler.service;
 
 import com.profiler.service.bean.ProfileService;
-import com.profiler.service.bean.RoleService;
 import com.profiler.service.dto.ProfileDto;
 import com.profiler.service.dto.RoleDto;
 import org.junit.Before;
@@ -23,9 +22,6 @@ public class ProfileServiceCrudTest extends GenericTest {
 
     @Autowired
     private ProfileService profileService;
-
-    @Autowired
-    private RoleService roleService;
 
     private Long id;
 

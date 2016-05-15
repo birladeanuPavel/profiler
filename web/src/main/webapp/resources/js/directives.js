@@ -93,6 +93,8 @@ profilerDirectives.directive('validPassword', function () {
             ctrl.$parsers.unshift(function (viewValue, $scope) {
                 var noMatch = viewValue != scope.user.password;
                 ctrl.$setValidity('noMatch', !noMatch);
+                var valid = !noMatch;
+                return valid;
             })
         }
     }

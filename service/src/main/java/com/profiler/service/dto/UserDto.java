@@ -14,6 +14,8 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
+
 /**
  * Created by pavel on 4/25/16.
  */
@@ -27,27 +29,27 @@ public class UserDto {
     private String email;
 
     @NotNull
-    @Size(min=1, max = 20)
+    @Size(min = 1, max = 20)
     private String password;
 
     @NotNull
     @NotEmpty
-    @Size(min=1, max = 20)
+    @Size(min = 1, max = 20)
     private String firstName;
 
     @NotNull
     @NotEmpty
-    @Size(min=1, max = 20)
+    @Size(min = 1, max = 20)
     private String lastName;
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-dd-mm")
+    @DateTimeFormat(iso = DATE)
     @Past
     private Date birthDate;
 
     @NotNull
     @NotEmpty
-    private byte[] avatar;
+    private String avatar;
 
     @NotNull
     private Gender gender;
@@ -118,13 +120,13 @@ public class UserDto {
         this.birthDate = birthDate;
     }
 
-    @Convert(name = "setAvatar", type = byte[].class)
-    public byte[] getAvatar() {
+    @Convert(name = "setAvatar", type = String.class)
+    public String getAvatar() {
         return avatar;
     }
 
     @Convert(name = "getAvatar", convertType = ConvertType.TO_DTO)
-    public void setAvatar(byte[] avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 

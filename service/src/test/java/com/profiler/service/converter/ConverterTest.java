@@ -50,7 +50,7 @@ public class ConverterTest extends GenericTest {
         profile.setName("adminProfile");
 
         User user = new User();
-        user.setAvatar(new byte[2]);
+        user.setAvatar("img");
         user.setFirstName("admin");
         user.setLastName("admin");
         user.setBirthDate(new Date());
@@ -75,7 +75,7 @@ public class ConverterTest extends GenericTest {
         profile.setName("adminProfile");
 
         UserDto userDto = new UserDto();
-        userDto.setAvatar(new byte[2]);
+        userDto.setAvatar("img");
         userDto.setFirstName("admin");
         userDto.setLastName("admin");
         userDto.setBirthDate(new Date());

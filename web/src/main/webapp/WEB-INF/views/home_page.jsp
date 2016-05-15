@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <!--<li class="active"><a href="/profiler">Home <span class="sr-only">(current)</span></a></li>-->
-                        <li><a href="/profiler/#/createUser">Edit profile</a></li>
+                        <li><a href="/profiler/#/createUser">Create profile</a></li>
 <!--                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -80,6 +80,7 @@
         <!--mine-->
         <script src="<c:url value="/resources/js/controller.js" />"></script>
         <script src="<c:url value="/resources/js/directives.js" />"></script>
+        <script src="<c:url value="/resources/js/service.js" />"></script>
         <script src="<c:url value="/resources/js/main.js" />"></script>
 
     </body>

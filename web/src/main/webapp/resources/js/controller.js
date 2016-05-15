@@ -2,10 +2,17 @@
 
 var profilerControllers = angular.module("profilerControllers", []);
 
-profilerControllers.controller('UserController', ['$scope',
-    function ($scope) {
+profilerControllers.controller('UserController', ['$scope', 'UserResource', '$routeParams',
+    function ($scope, UserResource, $routeParams) {
+        // var someUser = UserResource.get({id: 1});
+
+        $scope.profiles = [
+            'ADMIN', 'USER'
+        ];
+
         $scope.user = {
-            gender: 'MALE'
+            gender: 'MALE',
+            profileType: 'USER'
         };
 
         $scope.FormElement = {
@@ -35,7 +42,8 @@ profilerControllers.controller('UserController', ['$scope',
             if (form.$invalid) {
                 console.log('success');
             } else {
-                $scope.user.avatar = $scope.resource;
+                $scope.user.avatar = encodeURIComponent($scope.resource);
+                UserResource.save([], $scope.user);
             }
         };
     }]);

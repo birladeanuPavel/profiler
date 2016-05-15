@@ -1,6 +1,6 @@
 'user strict';
 
-var profilerApp = angular.module('profilerApp', ['ngRoute', 'profilerControllers', 'profilerDirectives']);
+var profilerApp = angular.module('profilerApp', ['ngRoute', 'profilerControllers', 'profilerDirectives', 'webServices']);
 
 profilerApp.config(['$routeProvider',
     function ($routeProvider) {

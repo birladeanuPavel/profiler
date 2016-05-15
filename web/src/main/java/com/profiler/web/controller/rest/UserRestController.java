@@ -19,31 +19,31 @@ public class UserRestController extends MainRestController{
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "getUser/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     public ResponseEntity<UserDto> getUser(@PathVariable Long id) {
         UserDto userDto = userService.getById(id);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "getAllUsers", method = RequestMethod.GET)
+    @RequestMapping(value = "user", method = RequestMethod.GET)
     public ResponseEntity<List<UserDto>> getAllUsers() {
         List<UserDto> users = userService.getAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "saveUser", method = RequestMethod.POST)
+    @RequestMapping(value = "user", method = RequestMethod.POST)
     public ResponseEntity<Void> saveUser(@Valid @RequestBody UserDto userDto) {
         userService.save(userDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "updateUser", method = RequestMethod.PUT)
+    @RequestMapping(value = "user", method = RequestMethod.PUT)
     public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto) {
         userDto = userService.update(userDto);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "deleteUser/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "user/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

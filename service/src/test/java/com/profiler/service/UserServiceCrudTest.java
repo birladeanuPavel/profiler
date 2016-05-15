@@ -1,10 +1,7 @@
 package com.profiler.service;
 
 import com.profiler.dal.enums.Gender;
-import com.profiler.service.bean.ProfileService;
-import com.profiler.service.bean.RoleService;
 import com.profiler.service.bean.UserService;
-import com.profiler.service.dto.ProfileDto;
 import com.profiler.service.dto.RoleDto;
 import com.profiler.service.dto.UserDto;
 import com.profiler.service.enums.ProfileEnum;
@@ -12,9 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashSet;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -30,12 +25,6 @@ public class UserServiceCrudTest extends GenericTest{
     private static final String ADMIN_ROLE = "Admin_Role";
     
     @Autowired
-    private RoleService roleService;
-    
-    @Autowired
-    private ProfileService profileService;
-    
-    @Autowired
     private UserService userService;
             
     private Long id;
@@ -46,7 +35,7 @@ public class UserServiceCrudTest extends GenericTest{
         roleDto.setName(ADMIN_ROLE);
 
         UserDto user = new UserDto();
-        user.setAvatar(new byte[2]);
+        user.setAvatar("img");
         user.setFirstName(USER_FIRST_NAME);
         user.setLastName("admin");
         user.setBirthDate(new Date());

@@ -7,7 +7,11 @@ profilerApp.config(['$routeProvider',
         $routeProvider.
                 when('/createUser', {
                     templateUrl: 'resources/routes/user_form.jspf',
-                    controller: 'UserController'
+                    controller: 'CreateUserController'
+                }).
+                when('/editUser/:id', {
+                    templateUrl: 'resources/routes/user_form.jspf',
+                    controller: 'EditUserController'
                 }).
                 otherwise({
                     redirectTo: '/'

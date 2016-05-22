@@ -7,6 +7,7 @@ import com.profiler.service.bean.UserService;
 import com.profiler.service.converter.ModelConverterComponent;
 import com.profiler.service.dto.ProfileDto;
 import com.profiler.service.dto.UserDto;
+import com.profiler.service.enums.ProfileEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getById(Long id) {
-        return modelConverterComponent.convertToDto(userDao.getById(id), UserDto.class);
+        UserDto userDto = modelConverterComponent.convertToDto(userDao.getById(id), UserDto.class);
+        userDto.setProfileType(ProfileEnum.valueOf(userDto.getProfile().getName()));
+        return userDto;
     }
 
     @Override

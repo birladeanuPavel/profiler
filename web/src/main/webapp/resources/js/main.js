@@ -13,6 +13,9 @@ profilerApp.config(['$routeProvider',
                     templateUrl: 'resources/routes/user_form.jspf',
                     controller: 'EditUserController'
                 }).
+                when('/error', {
+                    templateUrl: 'resources/routes/error.jspf'
+                }).
                 otherwise({
                     redirectTo: '/'
                 });

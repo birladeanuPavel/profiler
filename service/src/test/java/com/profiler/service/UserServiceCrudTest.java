@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -48,7 +49,8 @@ public class UserServiceCrudTest extends GenericTest{
  
     @Test
     public void getUserById() {
-        UserDto user = userService.getById(id);
+        Optional<UserDto> optional = userService.getById(id);
+        UserDto user = optional.get();
         
         assertNotNull(user);
         assertEquals(Gender.MALE, user.getGender());

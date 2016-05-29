@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -33,10 +34,14 @@ public class UserServiceImpl implements UserService {
     private ProfileService profileService;
 
     @Override
-    public UserDto getById(Long id) {
-        UserDto userDto = modelConverterComponent.convertToDto(userDao.getById(id), UserDto.class);
+    public Optional<UserDto> getById(Long id) {
+        User user = userDao.getById(id);
+        if (user == null) {
+            return Optional.empty();
+        }
+        UserDto userDto = modelConverterComponent.convertToDto(user, UserDto.class);
         userDto.setProfileType(ProfileEnum.valueOf(userDto.getProfile().getName()));
-        return userDto;
+        return Optional.of(userDto);
     }
 
     @Override

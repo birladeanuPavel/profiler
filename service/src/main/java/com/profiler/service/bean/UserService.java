@@ -4,6 +4,7 @@ package com.profiler.service.bean;
 import com.profiler.service.dto.UserDto;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public interface UserService {
     
-    UserDto getById(Long id);
+    Optional<UserDto> getById(Long id);
     
     Long save(UserDto user);
     

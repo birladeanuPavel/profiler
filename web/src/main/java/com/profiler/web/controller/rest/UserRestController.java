@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by pavel on 4/24/16.
@@ -21,13 +22,20 @@ public class UserRestController extends MainRestController{
 
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     public ResponseEntity<UserDto> getUser(@PathVariable Long id) {
-        UserDto userDto = userService.getById(id);
+        Optional<UserDto> userOtipnal = userService.getById(id);
+        if (!userOtipnal.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        UserDto userDto = userOtipnal.get();
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public ResponseEntity<List<UserDto>> getAllUsers() {
         List<UserDto> users = userService.getAll();
+        if (users.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
